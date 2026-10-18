@@ -1,0 +1,65 @@
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="head" appReveal>
+      <span class="idx">03</span>
+      <span class="rule"></span>
+      <span class="ttl">Contact</span>
+    </div>
+
+    <div class="grid">
+      <div class="intro">
+        <h2 class="title" appReveal>Let's create<br /><em>something together</em></h2>
+
+        <p class="lead" appReveal [revealDelay]="100">
+          Have a project in mind? Reach out by email or WhatsApp and I will get back to you as soon
+          as possible.
+        </p>
+      </div>
+
+      <div class="info">
+        <div class="row" appReveal>
+          <span class="label">Email</span>
+          <div class="value">
+            <a [href]="gmail" target="_blank" rel="noopener">{{ email }}</a>
+            <button type="button" class="copy" (click)="copy()">
+              {{ copied() ? 'Copied ✓' : 'Copy' }}
+            </button>
+          </div>
+        </div>
+
+        <div class="row" appReveal [revealDelay]="80">
+          <span class="label">Phone</span>
+          <div class="value col">
+            @for (p of phones; track p.label) {
+              <div class="phone">
+                <a
+                  [href]="p.url"
+                  [attr.target]="p.type === 'WhatsApp' ? '_blank' : null"
+                  rel="noopener"
+                  (click)="onPhone($event, p)"
+                >
+                  {{ p.label }} <span>↗</span>
+                </a>
+                <small>{{ copiedPhone() === p.label ? 'Number copied ✓' : p.type }}</small>
+              </div>
+            }
+          </div>
+        </div>
+
+        <div class="row" appReveal [revealDelay]="160">
+          <span class="label">Social</span>
+          <div class="value col">
+            @for (s of socials; track s.label) {
+              <a [href]="s.url" target="_blank" rel="noopener">{{ s.label }} <span>↗</span></a>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="foot">
+      <span>© {{ year }} Ahmed Abd-Elnasser</span>
+      <a href="#top">Back to top ↑</a>
+    </footer>
+  </div>
+</section>

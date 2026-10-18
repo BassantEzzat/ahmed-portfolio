@@ -1,0 +1,23 @@
+<header class="bar" [class.scrolled]="scrolled()" [class.open]="open()">
+  <a class="logo" href="#top" (click)="close()">AA<i>.</i></a>
+
+  <nav class="links" aria-label="Main">
+    @for (l of links; track l.id) {
+      <a [href]="'#' + l.id" [class.active]="active() === l.id">{{ l.label }}</a>
+    }
+  </nav>
+
+  <button class="burger" (click)="toggle()" [attr.aria-expanded]="open()" aria-label="Menu">
+    <span></span>
+    <span></span>
+  </button>
+</header>
+
+<div class="menu" [class.open]="open()">
+  @for (l of links; track l.id; let i = $index) {
+    <a [href]="'#' + l.id" (click)="close()" [style.--i]="i">
+      <small>0{{ i + 1 }}</small
+      >{{ l.label }}
+    </a>
+  }
+</div>

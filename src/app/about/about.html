@@ -1,0 +1,72 @@
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="head" appReveal>
+      <span class="idx">01</span>
+      <span class="rule"></span>
+      <span class="ttl">About</span>
+    </div>
+
+    <div class="grid">
+      <figure class="media" #media appReveal>
+        <div class="frame">
+          <img
+            #img
+            [src]="image"
+            [style.object-position]="imagePos"
+            alt="Ahmed Abd-Elnasser"
+            loading="lazy"
+          />
+        </div>
+        <figcaption>Cairo, Egypt</figcaption>
+      </figure>
+
+      <div class="copy">
+        <h2 class="statement" #statement>
+          @for (w of words; track $index; let i = $index) {
+            <span class="w" [class.lit]="i < lit()" [class.em]="w.em">{{ w.t }}</span
+            >{{ ' ' }}
+          }
+        </h2>
+
+        <p class="body" appReveal>
+          Architectural visualization is my passion. I love bringing designs to life through
+          realistic visuals, careful lighting, and attention to detail. For me, it’s more than a
+          job; it’s something I truly enjoy and care about.
+        </p>
+
+        <!-- <div class="stats" appReveal [revealDelay]="100" (revealed)="startCount()">
+          <div>
+            <strong>{{ years() }}<sup>+</sup></strong>
+            <span>Years of experience</span>
+          </div>
+          <div>
+            <strong>{{ senior() }}<sup>+</sup></strong>
+            <span>Years as senior</span>
+          </div>
+          <div>
+            <strong>{{ studios() }}</strong>
+            <span>Studios &amp; firms</span>
+          </div>
+        </div> -->
+
+        <div class="skills" appReveal>
+          <h3>Software</h3>
+          <ul>
+            @for (s of software; track s.name; let i = $index) {
+              <li>
+                <span class="name">{{ s.name }}</span>
+                <span class="line">
+                  <span class="fill" [style.--lvl]="s.level / 100" [style.--i]="i"></span>
+                </span>
+              </li>
+            }
+          </ul>
+        </div>
+
+        <app-experience />
+
+        <p class="meta" appReveal>Faculty of Engineering, Architecture Department · 2018</p>
+      </div>
+    </div>
+  </div>
+</section>

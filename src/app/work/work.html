@@ -1,0 +1,51 @@
+<section class="work" id="work">
+  <div class="wrap">
+    <div class="head" appReveal>
+      <span class="idx">02</span>
+      <span class="rule"></span>
+      <span class="ttl">Work</span>
+    </div>
+
+    <div class="title-row">
+      <h2 class="title" appReveal>Selected <em>Work</em></h2>
+      <p class="count" appReveal [revealDelay]="120">
+        <strong>{{ items.length }}</strong> visuals
+      </p>
+    </div>
+
+    <div class="grid" [style.--cols]="cols()">
+      @for (col of columns(); track $index; let c = $index) {
+        <div class="col">
+          @for (t of col; track t.item.id) {
+            <button
+              type="button"
+              class="tile"
+              data-cursor
+              appReveal
+              [revealDelay]="c * 120"
+              [attr.data-lb]="t.item.id"
+              [attr.aria-label]="'Open visual ' + (t.index + 1)"
+              (click)="openAt(t.index, $event)"
+            >
+              <span class="ph" [style.aspect-ratio]="t.item.width + ' / ' + t.item.height">
+                <img
+                  [src]="t.item.thumb"
+                  [attr.width]="t.item.width"
+                  [attr.height]="t.item.height"
+                  loading="lazy"
+                  alt=""
+                />
+                <span class="cap">
+                  <em>{{ pad(t.index + 1) }}</em>
+                  <i>View</i>
+                </span>
+              </span>
+            </button>
+          }
+        </div>
+      }
+    </div>
+  </div>
+
+  <app-lightbox [items]="items" />
+</section>

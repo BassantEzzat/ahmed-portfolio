@@ -1,0 +1,172 @@
+:host { display: block; }
+
+.exp { margin: clamp(32px, 5vh, 56px) 0; }
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+/* نفس عنوان Software */
+.sub {
+  margin: 0;
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 0.74rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  .count {
+    margin-right: 8px;
+    font-family: var(--serif);
+    font-size: 0.95rem;
+    letter-spacing: 0.1em;
+
+    i { font-style: normal; color: var(--accent); margin: 0 3px; }
+  }
+
+  button {
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    background: none;
+    color: var(--ink);
+    font-size: 0.95rem;
+    transition: border-color 0.3s, color 0.3s;
+
+    &:hover { border-color: var(--accent); color: var(--accent); }
+  }
+}
+
+/* ---------- Tabs ---------- */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 26px;
+  border-bottom: 1px solid var(--line);
+
+  button {
+    position: relative;
+    padding: 6px 0 12px;
+    border: 0;
+    background: none;
+    color: var(--muted);
+    font: inherit;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 1px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s var(--ease);
+    }
+
+    &:hover { color: var(--ink); }
+    &.active { color: var(--accent); }
+    &.active::after { transform: scaleX(1); }
+  }
+}
+
+/* ---------- Slide ---------- */
+.viewport {
+  overflow: hidden;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.job {
+  padding: 24px 0 0;
+  min-height: 170px;
+
+  &.next { animation: slideNext 0.55s var(--ease) both; }
+  &.prev { animation: slidePrev 0.55s var(--ease) both; }
+}
+
+@keyframes slideNext {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes slidePrev {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: none; }
+}
+
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 20px;
+  margin-bottom: 14px;
+}
+
+h4 {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(1.25rem, 1.8vw, 1.55rem);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.place {
+  margin: 0;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.points {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--muted);
+
+    &:last-child { margin-bottom: 0; }
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.85em;
+      width: 8px;
+      height: 1px;
+      background: var(--accent);
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .job { min-height: 230px; }
+  .top { flex-direction: column; gap: 4px; }
+}

@@ -1,0 +1,36 @@
+<div class="exp">
+  <div class="bar" appReveal>
+    <h3 class="sub">Experience</h3>
+
+    <div class="nav">
+      <span class="count">{{ num(index()) }} <i>/</i> {{ num(jobs.length - 1) }}</span>
+      <button type="button" (click)="go(-1)" aria-label="Previous">←</button>
+      <button type="button" (click)="go(1)" aria-label="Next">→</button>
+    </div>
+  </div>
+
+  <div class="tabs" appReveal [revealDelay]="80">
+    @for (j of jobs; track j.company; let i = $index) {
+      <button type="button" [class.active]="i === index()" (click)="set(i)">
+        {{ j.company }}
+      </button>
+    }
+  </div>
+
+  <div class="viewport" (pointerdown)="onDown($event)" (pointerup)="onUp($event)">
+    @for (j of current(); track j.company) {
+      <article class="job" [class.next]="dir() === 1" [class.prev]="dir() === -1">
+        <div class="top">
+          <h4>{{ j.role }}</h4>
+          <p class="place">{{ j.location }}</p>
+        </div>
+
+        <ul class="points">
+          @for (p of j.points; track p) {
+            <li>{{ p }}</li>
+          }
+        </ul>
+      </article>
+    }
+  </div>
+</div>

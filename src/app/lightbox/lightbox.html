@@ -1,0 +1,56 @@
+@if (isOpen()) {
+  <div
+    class="lb"
+    [class.closing]="closing()"
+    data-lenis-prevent
+    role="dialog"
+    aria-modal="true"
+    aria-label="Image viewer"
+  >
+    <div class="backdrop"></div>
+
+    <div
+      class="stage"
+      (pointerdown)="onPointerDown($event)"
+      (pointermove)="onPointerMove($event)"
+      (pointerup)="onPointerUp($event)"
+      (pointercancel)="onPointerUp($event)"
+      (wheel)="onWheel($event)"
+    >
+      @for (it of current(); track it.id) {
+        <div class="slide" [class.next]="dir() === 1" [class.prev]="dir() === -1">
+          <img
+            class="lb-img"
+            [class.smooth]="smooth()"
+            [class.flip]="flip()"
+            [src]="fullReady() ? it.full : it.thumb"
+            [style.width.px]="fit().w"
+            [style.height.px]="fit().h"
+            [style.transform]="transform()"
+            alt=""
+            draggable="false"
+          />
+        </div>
+      }
+    </div>
+
+    <div class="ui">
+      <div class="top">
+        <span class="count">{{ pad(index() + 1) }} <i>/</i> {{ pad(total()) }}</span>
+
+        <div class="tools">
+          <button type="button" (click)="zoomStep(-1)" aria-label="Zoom out">−</button>
+          <span class="pct">{{ zoomPct() }}%</span>
+          <button type="button" (click)="zoomStep(1)" aria-label="Zoom in">+</button>
+          <button type="button" class="fitbtn" (click)="resetZoom()">Fit</button>
+          <button type="button" (click)="close()" aria-label="Close">✕</button>
+        </div>
+      </div>
+
+      <button type="button" class="arrow prev" (click)="go(-1)" aria-label="Previous">←</button>
+      <button type="button" class="arrow next" (click)="go(1)" aria-label="Next">→</button>
+
+      <p class="hint">Scroll to zoom · Drag to move · Double-click to zoom</p>
+    </div>
+  </div>
+}
