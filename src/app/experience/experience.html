@@ -1,13 +1,5 @@
 <div class="exp">
-  <div class="bar" appReveal>
-    <h3 class="sub">Experience</h3>
-
-    <div class="nav">
-      <span class="count">{{ num(index()) }} <i>/</i> {{ num(jobs.length - 1) }}</span>
-      <button type="button" (click)="go(-1)" aria-label="Previous">←</button>
-      <button type="button" (click)="go(1)" aria-label="Next">→</button>
-    </div>
-  </div>
+  <h3 class="sub" appReveal>Experience</h3>
 
   <div class="tabs" appReveal [revealDelay]="80">
     @for (j of jobs; track j.company; let i = $index) {
@@ -32,5 +24,11 @@
         </ul>
       </article>
     }
+  </div>
+
+  <div class="nav" appReveal>
+    <span class="count">{{ num(index()) }} <i>/</i> {{ num(jobs.length - 1) }}</span>
+    <button type="button" (click)="go(-1)" aria-label="Previous">←</button>
+    <button type="button" (click)="go(1)" aria-label="Next">→</button>
   </div>
 </div>
