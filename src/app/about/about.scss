@@ -76,13 +76,9 @@ figcaption {
   line-height: 1.25;
   letter-spacing: -0.015em;
 
-  .w {
-    color: rgba(241, 237, 230, 0.16);
-    transition: color 0.6s ease;
-
-    &.lit { color: var(--ink); }
-    &.em { font-style: italic; }
-    &.em.lit { color: var(--accent); }
+  .w.em {
+    font-style: italic;
+    color: var(--accent);
   }
 }
 

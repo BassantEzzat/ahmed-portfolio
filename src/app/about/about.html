@@ -22,8 +22,8 @@
 
       <div class="copy">
         <h2 class="statement" #statement>
-          @for (w of words; track $index; let i = $index) {
-            <span class="w" [class.lit]="i < lit()" [class.em]="w.em">{{ w.t }}</span
+          @for (w of words; track $index) {
+            <span class="w" [class.em]="w.em">{{ w.t }}</span
             >{{ ' ' }}
           }
         </h2>

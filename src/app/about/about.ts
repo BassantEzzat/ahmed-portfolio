@@ -48,12 +48,10 @@ export class About {
     { name: 'XYZ Anima', level: 80 },
   ];
 
-  lit = signal(0);
   years = signal(0);
   senior = signal(0);
   studios = signal(0);
 
-  private statement = viewChild<ElementRef<HTMLElement>>('statement');
   private media = viewChild<ElementRef<HTMLElement>>('media');
   private img = viewChild<ElementRef<HTMLImageElement>>('img');
   private ticking = false;
@@ -94,15 +92,6 @@ export class About {
 
   private update() {
     const vh = window.innerHeight;
-
-    // الجملة بتنوّر كلمة كلمة مع السكرول
-    const s = this.statement()?.nativeElement;
-    if (s) {
-      const r = s.getBoundingClientRect();
-      const p = Math.min(Math.max((vh * 0.85 - r.top) / (r.height + vh * 0.25), 0), 1);
-      const n = Math.ceil(p * this.words.length);
-      if (n !== this.lit()) this.lit.set(n);
-    }
 
     // parallax خفيف للصورة
     const m = this.media()?.nativeElement;
