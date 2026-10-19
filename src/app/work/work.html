@@ -14,7 +14,7 @@
     </div>
 
     <div class="grid" [style.--cols]="cols()">
-      @for (col of columns(); track $index) {
+      @for (col of columns(); track $index; let c = $index) {
         <div class="col">
           @for (t of col; track t.item.id) {
             <button
@@ -22,6 +22,7 @@
               class="tile"
               data-cursor
               appReveal
+              [revealDelay]="c * 80"
               [attr.data-lb]="t.item.id"
               [attr.aria-label]="'Open visual ' + (t.index + 1)"
               (click)="openAt(t.index, $event)"
