@@ -37,18 +37,18 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* أي عنصر عليه appReveal بيظهر لما يدخل الشاشة */
-[appReveal] {
-  opacity: 0;
-  transform: translateY(28px);
-  transition:
-    opacity 0.55s var(--ease-out) var(--d, 0ms),
-    transform 0.7s var(--ease-out) var(--d, 0ms);
-}
+// [appReveal] {
+//   opacity: 0;
+//   transform: translateY(28px);
+//   transition:
+//     opacity 0.55s var(--ease-out) var(--d, 0ms),
+//     transform 0.7s var(--ease-out) var(--d, 0ms);
+// }
 
-[appReveal].in {
-  opacity: 1;
-  transform: none;
-}
+// [appReveal].in {
+//   opacity: 1;
+//   transform: none;
+// }
 
 /* سكاشن مؤقتة لحد ما نبنيها */
 .placeholder {

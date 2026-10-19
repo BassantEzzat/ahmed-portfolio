@@ -154,21 +154,21 @@
   outline-offset: 3px;
 }
 /* حركة ظهور الصور */
-.tile[appReveal] {
-  transform: translateY(56px);
-  transition:
-    opacity 0.7s var(--ease-out) var(--d, 0ms),
-    transform 0.95s var(--ease-out) var(--d, 0ms);
-}
+// .tile[appReveal] {
+//   transform: translateY(56px);
+//   transition:
+//     opacity 0.7s var(--ease-out) var(--d, 0ms),
+//     transform 0.95s var(--ease-out) var(--d, 0ms);
+// }
 
-.tile[appReveal].in { transform: none; }
+// .tile[appReveal].in { transform: none; }
 
-.tile[appReveal] .ph img { scale: 1.18; }
+// .tile[appReveal] .ph img { scale: 1.18; }
 
-.tile[appReveal].in .ph img {
-  scale: 1;
-  transition: scale 1.3s var(--ease-out) var(--d, 0ms), transform 1.4s var(--ease);
-}
-@media (max-width: 560px) {
-  .title-row { align-items: flex-start; flex-direction: column; gap: 12px; }
-}
+// .tile[appReveal].in .ph img {
+//   scale: 1;
+//   transition: scale 1.3s var(--ease-out) var(--d, 0ms), transform 1.4s var(--ease);
+// }
+// @media (max-width: 560px) {
+//   .title-row { align-items: flex-start; flex-direction: column; gap: 12px; }
+// }
