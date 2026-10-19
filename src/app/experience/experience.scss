@@ -59,7 +59,7 @@
 }
 
 .job {
-  padding: 18px 0 22px;
+  padding: 18px 0 14px;
   min-height: 170px;
 
   &.next { animation: slideNext 0.55s var(--ease) both; }
@@ -129,14 +129,14 @@ h4 {
   }
 }
 
-/* ---------- Arrows (تحت) ---------- */
+/* ---------- Arrows (فوق الخط) ---------- */
 .nav {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: 8px;
-  padding-top: 14px;
-  border-top: 1px solid var(--line);
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
 
   .count {
     margin-right: 8px;
