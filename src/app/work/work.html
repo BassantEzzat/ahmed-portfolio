@@ -8,13 +8,13 @@
 
     <div class="title-row">
       <h2 class="title" appReveal>Selected <em>Work</em></h2>
-      <p class="count" appReveal [revealDelay]="120">
+      <p class="count" appReveal>
         <strong>{{ items.length }}</strong> visuals
       </p>
     </div>
 
     <div class="grid" [style.--cols]="cols()">
-      @for (col of columns(); track $index; let c = $index) {
+      @for (col of columns(); track $index) {
         <div class="col">
           @for (t of col; track t.item.id) {
             <button
@@ -22,7 +22,6 @@
               class="tile"
               data-cursor
               appReveal
-              [revealDelay]="c * 120"
               [attr.data-lb]="t.item.id"
               [attr.aria-label]="'Open visual ' + (t.index + 1)"
               (click)="openAt(t.index, $event)"
@@ -32,7 +31,8 @@
                   [src]="t.item.thumb"
                   [attr.width]="t.item.width"
                   [attr.height]="t.item.height"
-                  loading="lazy"
+                  [attr.loading]="t.index < 6 ? 'eager' : 'lazy'"
+                  decoding="async"
                   alt=""
                 />
                 <span class="cap">

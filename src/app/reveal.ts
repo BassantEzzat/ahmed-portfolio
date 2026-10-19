@@ -21,7 +21,8 @@ export class Reveal implements OnInit, OnDestroy {
           this.io?.disconnect();
         }
       },
-      { threshold: 0.2, rootMargin: '0px 0px -8% 0px' }
+      // threshold 0: يبدأ أول ما يلمس الشاشة، والـ 12% من تحت معناها يبدأ قبل ما يدخل
+      { threshold: 0, rootMargin: '0px 0px 12% 0px' }
     );
     this.io.observe(node);
   }
