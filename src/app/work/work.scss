@@ -2,7 +2,7 @@
 
 .work {
   position: relative;
-  padding: clamp(70px, 11vh, 130px) 0;
+  padding: clamp(40px, 6vh, 70px) 0 clamp(70px, 11vh, 130px);
   border-top: 1px solid var(--line);
 }
 

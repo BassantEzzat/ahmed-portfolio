@@ -2,7 +2,7 @@
 
 .about {
   position: relative;
-  padding: clamp(70px, 11vh, 150px) 0 clamp(70px, 11vh, 130px);
+  padding: clamp(40px, 6vh, 70px) 0 clamp(30px, 5vh, 56px);
 }
 
 .wrap { padding: 0 var(--pad-x); }
@@ -66,7 +66,7 @@ figcaption {
 .copy {
   display: flex;
   flex-direction: column;
-  gap: clamp(28px, 4.5vh, 48px);
+  gap: clamp(20px, 3vh, 32px);
 }
 
 .statement {
@@ -126,7 +126,7 @@ figcaption {
 /* ---------- Skills ---------- */
 .skills {
   h3 {
-    font-size: 0.74rem;
+    font-size: 0.9rem;
     font-weight: 400;
     letter-spacing: 0.34em;
     text-transform: uppercase;

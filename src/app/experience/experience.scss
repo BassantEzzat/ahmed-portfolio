@@ -1,13 +1,13 @@
 :host { display: block; }
 
-.exp { margin: clamp(40px, 7vh, 72px) 0 0; }
+.exp { margin: clamp(8px, 1.5vh, 16px) 0 clamp(12px, 2vh, 24px); }
 
 /* نفس عنوان Software */
 .sub {
-  margin: 0 0 14px;
+  margin: 0 0 22px;
   font-family: inherit;
   font-weight: 400;
-  font-size: 0.74rem;
+  font-size: 0.9rem;
   letter-spacing: 0.34em;
   text-transform: uppercase;
   color: var(--accent);
@@ -22,7 +22,7 @@
 
   button {
     position: relative;
-    padding: 6px 0 12px;
+    padding: 6px 0 10px;
     border: 0;
     background: none;
     color: var(--muted);
@@ -59,8 +59,8 @@
 }
 
 .job {
-  padding: 18px 0 14px;
-  min-height: 170px;
+  padding: 14px 0 10px;
+  min-height: 140px;
 
   &.next { animation: slideNext 0.55s var(--ease) both; }
   &.prev { animation: slidePrev 0.55s var(--ease) both; }
@@ -82,7 +82,7 @@
   align-items: baseline;
   justify-content: space-between;
   gap: 4px 20px;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 
 h4 {
@@ -110,9 +110,9 @@ h4 {
   li {
     position: relative;
     padding-left: 18px;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     font-size: 0.95rem;
-    line-height: 1.65;
+    line-height: 1.6;
     color: var(--muted);
 
     &:last-child { margin-bottom: 0; }
@@ -135,7 +135,7 @@ h4 {
   align-items: center;
   justify-content: flex-end;
   gap: 8px;
-  padding-bottom: 14px;
+  padding-bottom: 10px;
   border-bottom: 1px solid var(--line);
 
   .count {
@@ -164,6 +164,6 @@ h4 {
 }
 
 @media (max-width: 700px) {
-  .job { min-height: 230px; }
+  .job { min-height: 210px; }
   .top { flex-direction: column; gap: 4px; }
 }
